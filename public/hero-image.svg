@@ -1,0 +1,29 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- React Logo -->
+  <circle cx="400" cy="300" r="80" fill="#61dafb" opacity="0.2" />
+  <circle cx="400" cy="300" r="40" fill="#61dafb" opacity="0.4" />
+  <ellipse cx="400" cy="300" rx="180" ry="70" stroke="#61dafb" stroke-width="6" fill="none" transform="rotate(30 400 300)" />
+  <ellipse cx="400" cy="300" rx="180" ry="70" stroke="#61dafb" stroke-width="6" fill="none" transform="rotate(90 400 300)" />
+  <ellipse cx="400" cy="300" rx="180" ry="70" stroke="#61dafb" stroke-width="6" fill="none" transform="rotate(150 400 300)" />
+  
+  <!-- Vite Logo Elements -->
+  <polygon points="250,150 300,250 200,250" fill="#646cff" opacity="0.7" />
+  
+  <!-- Tailwind Elements -->
+  <rect x="500" y="150" width="100" height="40" rx="5" fill="#0ea5e9" opacity="0.7" />
+  <rect x="520" y="200" width="80" height="30" rx="5" fill="#0ea5e9" opacity="0.5" />
+  <rect x="540" y="240" width="60" height="20" rx="5" fill="#0ea5e9" opacity="0.3" />
+  
+  <!-- TypeScript Elements -->
+  <rect x="200" y="350" width="120" height="120" rx="10" fill="#3178c6" opacity="0.7" />
+  <text x="220" y="420" font-family="monospace" font-size="48" fill="white">TS</text>
+  
+  <!-- Code Elements -->
+  <rect x="500" y="350" width="150" height="120" rx="5" fill="#0047ab" opacity="0.1" />
+  <line x1="520" y1="380" x2="630" y2="380" stroke="#0047ab" stroke-width="2" />
+  <line x1="520" y1="400" x2="600" y2="400" stroke="#0047ab" stroke-width="2" />
+  <line x1="520" y1="420" x2="620" y2="420" stroke="#0047ab" stroke-width="2" />
+  <line x1="520" y1="440" x2="580" y2="440" stroke="#0047ab" stroke-width="2" />
+</svg>
