@@ -4,8 +4,6 @@
 
 A modern, production-ready React template with **ShadCN UI**, **data visualizations**, and a complete **interactive appointment booking showcase**. Built with best practices, mobile-first design, and beautiful animations.
 
-![Template Preview](./public/screenshot1.jpg)
-
 ---
 
 ## ✨ Highlights
@@ -15,17 +13,23 @@ A modern, production-ready React template with **ShadCN UI**, **data visualizati
 🎯 **ShadCN UI Integration** - 17+ pre-built, accessible components  
 📱 **Mobile-First & Responsive** - Optimized for all screen sizes  
 ⚡ **Lightning Fast** - Powered by Vite 7 with HMR  
-🔒 **Type-Safe** - Full TypeScript support  
+🔒 **Type-Safe** - Full TypeScript support
 
 ---
 
 ## 📸 Screenshots
 
+### Template Preview
+
+![Template Preview](./public/sreenshot1.jpg)
+
 ### Interactive Appointment Booking
-![Appointment Booking System](./public/screenshot2.jpg)
+
+![Appointment Booking System](./public/sreenshot2.jpg)
 
 ### Data Visualization Dashboard
-![Dashboard with Charts](./public/screenshot3.jpg)
+
+![Dashboard with Charts](./public/sreenshot3.jpg)
 
 ---
 
@@ -50,12 +54,14 @@ pnpm preview
 ## 🎯 Tech Stack
 
 ### Core
+
 - **React 19** - Latest React with concurrent features
 - **TypeScript 5.8** - Full type safety
 - **Vite 7** - Next-generation frontend tooling
 - **Tailwind CSS 3.4** - Utility-first CSS framework
 
 ### UI & Components
+
 - **ShadCN UI** - Beautifully designed components built with Radix UI
 - **Lucide React** - Modern icon library (500+ icons)
 - **Recharts** - Composable charting library
@@ -63,6 +69,7 @@ pnpm preview
 - **tailwindcss-animate** - Animation utilities
 
 ### Developer Experience
+
 - **ESLint** - Code linting with React hooks rules
 - **Prettier** - Code formatting
 - **TypeScript ESLint** - TypeScript-specific linting
@@ -119,6 +126,7 @@ src/
 Visit `/components` to see a **fully functional appointment booking system** with real-time interactions!
 
 ### 📅 Appointment Booking System
+
 A complete booking flow demonstrating ShadCN UI components in action:
 
 - **Service Selection** - Dropdown with pricing and duration
@@ -131,6 +139,7 @@ A complete booking flow demonstrating ShadCN UI components in action:
 - **Confirmation Dialog** - Beautiful modal with animations, icons, and avatar
 
 ### 📊 Data Visualization Dashboard
+
 Professional charts and statistics:
 
 - **Stat Cards** - Revenue, Bookings, Active Clients, Avg. Session (with trend indicators)
@@ -170,23 +179,27 @@ pnpm init:template    # Run template initialization script
 This template follows modern web development best practices:
 
 ### Mobile-First Design
+
 - Responsive layouts starting from mobile (320px+)
 - Touch-friendly interactive elements
 - Optimized for tablets and desktop
 
 ### Accessibility
+
 - Semantic HTML structure
 - ARIA labels and roles
 - Keyboard navigation support
 - Screen reader friendly
 
 ### Performance
+
 - Code splitting and lazy loading
 - Optimized bundle sizes
 - Fast page loads with Vite
 - Efficient re-renders
 
 ### Code Quality
+
 - **SRP** (Single Responsibility Principle)
 - **DRY** (Don't Repeat Yourself)
 - **SoC** (Separation of Concerns)
@@ -198,18 +211,21 @@ This template follows modern web development best practices:
 ## 🔧 Configuration
 
 ### Path Aliases
+
 ```typescript
-import { Button } from '@/components/ui/button'
-import { utils } from '@/lib/utils'
+import { Button } from '@/components/ui/button';
+import { utils } from '@/lib/utils';
 ```
 
 ### Tailwind Configuration
+
 - Custom color schemes
 - Typography plugin
 - Animation utilities
 - Dark mode support
 
 ### TypeScript
+
 - Strict mode enabled
 - Path mapping configured
 - Full type coverage
@@ -233,6 +249,7 @@ Max container width: **7xl (80rem / 1280px)**
 ## 🎯 Use Cases
 
 This template is perfect for:
+
 - ✅ SaaS applications
 - ✅ Admin dashboards
 - ✅ Booking/scheduling systems
@@ -264,6 +281,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📬 Contact
 
 **Robert Cushman**
+
 - GitHub: [@RCushmaniii](https://github.com/RCushmaniii)
 - Repository: [react-vite-tailwind-base](https://github.com/RCushmaniii/react-vite-tailwind-base)
 
