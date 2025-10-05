@@ -17,43 +17,49 @@ export function HomePage() {
       icon: Zap,
       title: 'Lightning Fast',
       description: 'Powered by Vite 7 for instant server start and blazing fast HMR',
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-100 dark:bg-yellow-900/30'
+      iconColor: 'text-yellow-500 dark:text-yellow-400',
+      gradient: 'from-yellow-500/10 to-orange-500/10',
+      borderColor: 'border-yellow-500/20 hover:border-yellow-500/40'
     },
     {
       icon: Shield,
       title: 'Type-Safe',
       description: 'Built with TypeScript for better DX, fewer bugs, and maintainable code',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100 dark:bg-blue-900/30'
+      iconColor: 'text-blue-500 dark:text-blue-400',
+      gradient: 'from-blue-500/10 to-cyan-500/10',
+      borderColor: 'border-blue-500/20 hover:border-blue-500/40'
     },
     {
       icon: Palette,
       title: 'Modern Styling',
       description: 'Tailwind CSS + ShadCN UI for beautiful, responsive designs',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-100 dark:bg-purple-900/30'
+      iconColor: 'text-purple-500 dark:text-purple-400',
+      gradient: 'from-purple-500/10 to-pink-500/10',
+      borderColor: 'border-purple-500/20 hover:border-purple-500/40'
     },
     {
       icon: Code2,
       title: 'Best Practices',
       description: 'Following SOLID principles, DRY, and modern React patterns',
-      color: 'text-green-600',
-      bgColor: 'bg-green-100 dark:bg-green-900/30'
+      iconColor: 'text-emerald-500 dark:text-emerald-400',
+      gradient: 'from-emerald-500/10 to-teal-500/10',
+      borderColor: 'border-emerald-500/20 hover:border-emerald-500/40'
     },
     {
       icon: Rocket,
       title: 'Production Ready',
       description: 'Optimized builds, code splitting, and deployment-ready',
-      color: 'text-red-600',
-      bgColor: 'bg-red-100 dark:bg-red-900/30'
+      iconColor: 'text-rose-500 dark:text-rose-400',
+      gradient: 'from-rose-500/10 to-orange-500/10',
+      borderColor: 'border-rose-500/20 hover:border-rose-500/40'
     },
     {
       icon: Sparkles,
       title: 'Rich Components',
       description: '17+ pre-built ShadCN components with animations',
-      color: 'text-pink-600',
-      bgColor: 'bg-pink-100 dark:bg-pink-900/30'
+      iconColor: 'text-fuchsia-500 dark:text-fuchsia-400',
+      gradient: 'from-fuchsia-500/10 to-purple-500/10',
+      borderColor: 'border-fuchsia-500/20 hover:border-fuchsia-500/40'
     }
   ];
 
@@ -116,16 +122,16 @@ export function HomePage() {
               return (
                 <Card 
                   key={index} 
-                  className="border-2 hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                  className={`relative overflow-hidden border-2 ${feature.borderColor} hover:shadow-xl transition-all duration-300 group bg-gradient-to-br ${feature.gradient}`}
                 >
                   <CardHeader>
-                    <div className={`w-12 h-12 rounded-lg ${feature.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className={`h-6 w-6 ${feature.color}`} />
+                    <div className="w-14 h-14 rounded-xl bg-white dark:bg-gray-900 shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <Icon className={`h-7 w-7 ${feature.iconColor}`} strokeWidth={2.5} />
                     </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">{feature.description}</CardDescription>
+                    <CardDescription className="text-base leading-relaxed">{feature.description}</CardDescription>
                   </CardContent>
                 </Card>
               );
