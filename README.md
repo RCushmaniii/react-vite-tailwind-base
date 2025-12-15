@@ -4,6 +4,11 @@
 
 A modern, production-ready React template with **ShadCN UI**, **data visualizations**, and a complete **interactive appointment booking showcase**. Built with best practices, mobile-first design, and beautiful animations.
 
+## 🌐 Live Demo
+
+- **Home:** https://react-vite-tailwind-base.vercel.app/home
+- **Components showcase:** https://react-vite-tailwind-base.vercel.app/components
+
 ---
 
 ## ✨ Highlights
@@ -148,7 +153,7 @@ Professional charts and statistics:
 - **Bar Chart** - Weekly appointment activity
 - **Responsive Design** - All charts optimized for mobile devices
 
-**Live Demo:** Run `pnpm dev` and visit `http://localhost:3000/components`
+**Live Demo:** https://react-vite-tailwind-base.vercel.app/components (or run `pnpm dev` and visit `http://localhost:3000/components`)
 
 ---
 
