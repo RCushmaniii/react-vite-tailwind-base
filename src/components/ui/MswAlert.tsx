@@ -9,9 +9,9 @@ export function MswAlert() {
   };
   
   return (
-    <div className="rounded-md border overflow-hidden bg-amber-50 border-amber-200">
+    <div className="rounded-md border overflow-hidden bg-card border-border">
       {/* Demo label */}
-      <div className="bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">
+      <div className="bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
         DEMO ALERT
       </div>
       
@@ -22,16 +22,16 @@ export function MswAlert() {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="flex-shrink-0 h-5 w-5 text-amber-500">
+            <div className="flex-shrink-0 h-5 w-5 text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-amber-800">
+              <h3 className="text-sm font-medium text-foreground">
                 Mock Alert: API Connection Error
               </h3>
-              <div className="mt-1 text-sm text-amber-700">
+              <div className="mt-1 text-sm text-muted-foreground">
                 <p>Mock Service Worker is not active. API may not be connecting due to server outage.</p>
               </div>
             </div>
@@ -39,7 +39,7 @@ export function MswAlert() {
           
           <div className="flex-shrink-0 ml-2">
             <div 
-              className="inline-flex items-center justify-center h-5 w-5 text-amber-500"
+              className="inline-flex items-center justify-center h-5 w-5 text-muted-foreground"
               aria-label={isExpanded ? "Collapse" : "Expand"}
             >
               <svg 
@@ -59,18 +59,18 @@ export function MswAlert() {
       
       {/* Expandable details section */}
       {isExpanded && (
-        <div className="px-4 py-3 bg-amber-100 border-t border-amber-200">
-          <div className="text-sm text-amber-800">
+        <div className="px-4 py-3 bg-muted border-t border-border">
+          <div className="text-sm text-foreground">
             <h4 className="font-medium mb-2">Outage Details:</h4>
             <ul className="list-disc pl-5 space-y-1">
               <li>This is a simulated server outage for demonstration purposes</li>
               <li>In a real application, this alert would show actual error details</li>
-              <li>To enable API mocking, set <code className="bg-amber-200 px-1 py-0.5 rounded">VITE_ENABLE_MSW=true</code> in your .env file</li>
+              <li>To enable API mocking, set <code className="bg-background px-1 py-0.5 rounded border border-border">VITE_ENABLE_MSW=true</code> in your .env file</li>
               <li>This component demonstrates an interactive, expandable alert pattern</li>
             </ul>
             <div className="mt-3 flex justify-end">
               <button 
-                className="px-3 py-1 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-md text-xs font-medium transition-colors"
+                className="px-3 py-1 bg-background hover:bg-card text-foreground rounded-md text-xs font-medium transition-colors border border-border"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsExpanded(false);

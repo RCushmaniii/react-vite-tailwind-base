@@ -60,10 +60,10 @@ export function ComponentsPage() {
   const [email, setEmail] = useState('');
 
   const services = [
-    { id: '1', name: 'Consultation', duration: 30, price: 50 },
-    { id: '2', name: 'Design Review', duration: 60, price: 100 },
-    { id: '3', name: 'Strategy Session', duration: 90, price: 150 },
-    { id: '4', name: 'Full Day Workshop', duration: 480, price: 800 },
+    { id: 'consultation', name: 'Consultation', duration: 30, price: 75 },
+    { id: 'design-review', name: 'Design Review', duration: 60, price: 150 },
+    { id: 'strategy', name: 'Strategy Session', duration: 45, price: 120 },
+    { id: 'workshop', name: 'Workshop', duration: 90, price: 250 },
   ];
 
   const timeSlots = [
@@ -81,7 +81,7 @@ export function ComponentsPage() {
   ];
 
   const serviceDistribution = [
-    { name: 'Consultation', value: 35, color: '#8b5cf6' },
+    { name: 'Consultation', value: 35, color: '#0d9488' },
     { name: 'Design Review', value: 28, color: '#3b82f6' },
     { name: 'Strategy Session', value: 22, color: '#10b981' },
     { name: 'Workshop', value: 15, color: '#f59e0b' },
@@ -115,8 +115,8 @@ export function ComponentsPage() {
         <Badge className="mb-2 animate-in slide-in-from-top duration-500" variant="secondary">
           ShadCN UI Components Showcase
         </Badge>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-in slide-in-from-bottom duration-700 leading-tight pb-3 md:pb-4">
-          Interactive Appointment Booking
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground animate-in slide-in-from-bottom duration-700 leading-tight pb-3 md:pb-4">
+          Interactive <span className="text-primary">Appointment</span> Booking
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-in slide-in-from-bottom duration-700 delay-150">
           Experience a fully responsive, mobile-first design with beautiful animations and modern UI components
@@ -329,7 +329,7 @@ export function ComponentsPage() {
                 <DialogContent className="sm:max-w-md">
                   <DialogHeader>
                     <DialogTitle className="text-2xl flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                      <div className="h-12 w-12 rounded-full bg-muted ring-1 ring-border/60 flex items-center justify-center">
                         <CheckCircle2 className="h-7 w-7 text-green-600 dark:text-green-400" />
                       </div>
                       Booking Confirmed!
@@ -338,7 +338,7 @@ export function ComponentsPage() {
                       <div className="flex items-center gap-4">
                         <Avatar className="h-16 w-16 border-2 border-primary">
                           <AvatarImage src={`https://api.dicebear.com/8.x/notionists/svg?seed=${name}`} />
-                          <AvatarFallback className="bg-gradient-to-br from-primary to-purple-600 text-white text-xl">
+                          <AvatarFallback className="bg-gradient-to-br from-primary to-teal-700 text-white text-xl">
                             {name.split(' ').map(n => n[0]).join('').toUpperCase()}
                           </AvatarFallback>
                         </Avatar>
@@ -361,9 +361,9 @@ export function ComponentsPage() {
                         <p><strong>Duration:</strong> {duration[0]} minutes</p>
                       </div>
                       {reminderEnabled && (
-                        <Alert className="bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
-                          <Mail className="h-4 w-4 text-blue-600" />
-                          <AlertDescription className="text-blue-900 dark:text-blue-100">
+                        <Alert className="bg-muted border-border">
+                          <Mail className="h-4 w-4 text-primary" />
+                          <AlertDescription className="text-foreground">
                             A confirmation email has been sent to {email}
                           </AlertDescription>
                         </Alert>
@@ -411,7 +411,7 @@ export function ComponentsPage() {
             <Card className="border-2 hover:shadow-lg transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Active Clients</CardTitle>
-                <Users className="h-5 w-5 text-purple-600" />
+                <Users className="h-5 w-5 text-teal-600" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">2,350</div>
@@ -453,8 +453,8 @@ export function ComponentsPage() {
                   <AreaChart data={revenueData}>
                     <defs>
                       <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="#0d9488" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="#0d9488" stopOpacity={0}/>
                       </linearGradient>
                       <linearGradient id="colorBookings" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
@@ -469,7 +469,7 @@ export function ComponentsPage() {
                     <Area 
                       type="monotone" 
                       dataKey="revenue" 
-                      stroke="#8b5cf6" 
+                      stroke="#0d9488" 
                       fillOpacity={1} 
                       fill="url(#colorRevenue)" 
                       name="Revenue ($)"
@@ -538,7 +538,7 @@ export function ComponentsPage() {
                     <Legend />
                     <Bar 
                       dataKey="appointments" 
-                      fill="#8b5cf6" 
+                      fill="#0d9488" 
                       radius={[8, 8, 0, 0]}
                       name="Appointments"
                     />

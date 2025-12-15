@@ -62,17 +62,11 @@ Treat state and props as immutable; never modify them directly.
 
 ### 🔹 State Management
 
-- TanStack Query → server state
-- Zustand → minimal global client state
-- Local state → component logic
+Prefer local component state for UI logic. Introduce additional state libraries only if/when the project needs them.
 
 ### 🔹 Routing
 
 Use React Router v6 with route-based code splitting.
-
-### 🔹 Forms & Validation
-
-React Hook Form + Zod for all forms and validation.
 
 ### 🔹 Styling
 

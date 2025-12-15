@@ -18,6 +18,7 @@ react-vite-tailwind-base/
 │   ├── examples/         # Example components (removable)
 │   ├── lib/              # Utility functions (cn, utils)
 │   ├── mocks/            # MSW API mocking
+│   ├── routes/            # React Router v6 route definitions
 │   └── pages/            # Page components
 │       ├── Components.tsx       # Booking system + charts
 │       ├── DocsPage.tsx         # Documentation viewer
@@ -88,6 +89,10 @@ For local development without a backend:
 - Toggle with `VITE_ENABLE_MSW=true|false` in your `.env`
 - Example handlers in `src/mocks/handlers.ts`
 
+### Routing
+
+Routes are defined in `src/routes/AppRouter.tsx`. The `src/App.tsx` file is the shared layout (Header / Footer / Outlet).
+
 ### 5. Tailwind CSS
 
 The template includes Tailwind CSS with:
@@ -128,16 +133,16 @@ pnpm dlx shadcn@latest add toast popover command
 ### Importing Components
 
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Calendar } from '@/components/ui/calendar'
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Calendar } from '@/components/ui/calendar';
 ```
 
 ### Example Usage
 
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 function MyComponent() {
   return (
@@ -152,7 +157,7 @@ function MyComponent() {
         </Button>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 
@@ -161,7 +166,7 @@ function MyComponent() {
 The template includes Lucide React for modern, customizable icons:
 
 ```tsx
-import { Calendar, User, Mail, Settings, TrendingUp } from 'lucide-react'
+import { Calendar, User, Mail, Settings, TrendingUp } from 'lucide-react';
 
 function MyComponent() {
   return (
@@ -169,7 +174,7 @@ function MyComponent() {
       <Calendar className="h-6 w-6 text-primary" />
       <User className="h-4 w-4 text-muted-foreground" />
     </div>
-  )
+  );
 }
 ```
 

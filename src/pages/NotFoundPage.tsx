@@ -1,11 +1,14 @@
 // File: src/pages/NotFoundPage.tsx
 import { Home, Search, ArrowLeft, FileQuestion } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
 export function NotFoundPage() {
+  const navigate = useNavigate();
+
   const popularPages = [
     { name: 'Home', path: '/home', icon: Home },
     { name: 'Components', path: '/components', icon: FileQuestion },
@@ -17,13 +20,11 @@ export function NotFoundPage() {
       <div className="max-w-2xl w-full space-y-8 animate-in fade-in duration-700">
         {/* 404 Illustration */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 mb-4">
-            <FileQuestion className="h-10 w-10 sm:h-12 sm:w-12 text-indigo-600 dark:text-indigo-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-muted ring-1 ring-border/60 mb-4">
+            <FileQuestion className="h-10 w-10 sm:h-12 sm:w-12 text-primary" strokeWidth={2} />
           </div>
           
-          <h1 className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            404
-          </h1>
+          <h1 className="text-6xl sm:text-8xl font-bold text-primary">404</h1>
           
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">
             Page Not Found
@@ -39,7 +40,7 @@ export function NotFoundPage() {
           <Button 
             size="lg" 
             className="w-full sm:w-auto"
-            onClick={() => window.history.back()}
+            onClick={() => navigate(-1)}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Go Back
@@ -48,7 +49,7 @@ export function NotFoundPage() {
             size="lg" 
             variant="outline"
             className="w-full sm:w-auto"
-            onClick={() => window.location.href = '/home'}
+            onClick={() => navigate('/home')}
           >
             <Home className="mr-2 h-4 w-4" />
             Return Home
@@ -69,7 +70,7 @@ export function NotFoundPage() {
                 key={page.path}
                 variant="ghost"
                 className="w-full justify-start text-left h-auto py-3"
-                onClick={() => window.location.href = page.path}
+                onClick={() => navigate(page.path)}
               >
                 <page.icon className="mr-3 h-5 w-5 text-primary flex-shrink-0" />
                 <span className="text-base">{page.name}</span>
@@ -94,11 +95,11 @@ export function NotFoundPage() {
                 className="flex-1"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    window.location.href = '/docs/template_usage';
+                    navigate('/docs/template_usage');
                   }
                 }}
               />
-              <Button onClick={() => window.location.href = '/docs/template_usage'}>
+              <Button onClick={() => navigate('/docs/template_usage')}>
                 <Search className="h-4 w-4" />
               </Button>
             </div>

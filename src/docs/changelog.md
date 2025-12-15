@@ -1,8 +1,32 @@
 # Changelog
 
+## [December 15, 2025] - v1.0.0
+
+### Added
+
+- Self-hosted variable font pairing (Inter Variable + Fraunces Variable)
+- `pnpm verify` script to run `typecheck`, `lint`, and `build` in one command
+
+### Changed
+
+- Complete brand refresh to a clean, modern, minimal aesthetic
+- Standardized layout surfaces to theme tokens (`bg-background`, `bg-card`, `bg-muted`) for consistent UI
+
+### Fixed
+
+- ESLint React Fast Refresh issues by moving UI variant exports into dedicated modules
+- ESLint noise from generated MSW worker by ignoring `public/mockServiceWorker.js`
+
+### Removed
+
+- Unused leftover types file (`src/lib/types.ts`)
+
+---
+
 ## [September 30, 2025] - Major Update
 
 ### 🎉 Added
+
 - **ShadCN UI Integration** - Complete setup with 17 pre-built components
 - **Components Showcase Page** - Interactive appointment booking system
 - **Data Visualization Dashboard** - Charts with Recharts (Area, Pie, Bar)
@@ -14,6 +38,7 @@
 - **Email Reminders** - Toggle switch for notification preferences
 
 ### 📦 New Dependencies
+
 - `lucide-react` - Modern icon library
 - `recharts` - Charting library for data visualization
 - `date-fns` - Date utility library
@@ -23,6 +48,7 @@
 - `tailwind-merge` - Utility for merging Tailwind classes
 
 ### 🎨 UI Components Added
+
 - Accordion
 - Alert
 - Avatar
@@ -41,11 +67,13 @@
 - Tabs
 
 ### 🔧 Configuration Updates
+
 - Added path aliases to `tsconfig.json` and `tsconfig.app.json`
 - Updated Tailwind config with ShadCN theme variables
 - Added animation utilities to CSS
 
 ### 📝 Documentation
+
 - Comprehensive README with full feature list
 - Project structure documentation
 - Available scripts documentation
@@ -53,7 +81,9 @@
 - Responsive breakpoints guide
 
 ### 🎯 Features Implemented
+
 1. **Appointment Booking Flow**
+
    - Service selection with pricing
    - Calendar date picker
    - Time slot selection
@@ -62,6 +92,7 @@
    - Confirmation modal with avatar
 
 2. **Data Dashboard**
+
    - 4 stat cards with trend indicators
    - Revenue & bookings area chart
    - Service distribution pie chart
@@ -74,6 +105,7 @@
    - Added components route to App.tsx
 
 ### 🎨 Design Improvements
+
 - Mobile-first responsive design
 - Modern gradient text effects
 - Smooth animations and transitions
@@ -82,12 +114,14 @@
 - Touch-friendly UI elements
 
 ### ♿ Accessibility
+
 - Semantic HTML structure
 - ARIA labels and roles
 - Keyboard navigation support
 - Screen reader friendly components
 
 ### 🚀 Performance
+
 - Code splitting ready
 - Optimized bundle sizes
 - Efficient re-renders
@@ -98,6 +132,7 @@
 ## [September 29, 2025] - Initial Setup
 
 ### 🎉 Added
+
 - Initial project setup with React 19
 - Vite 7 configuration
 - Tailwind CSS 3.4 with Typography plugin

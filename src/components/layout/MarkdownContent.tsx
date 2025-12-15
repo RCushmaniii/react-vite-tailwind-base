@@ -14,9 +14,6 @@ export function MarkdownContent({ filePath }: MarkdownContentProps) {
   const [content, setContent] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  
-  // Define the cobalt blue color for use in styles
-  const cobaltBlue = '#0047ab';
 
   // Fetch markdown content from the file
   useEffect(() => {
@@ -43,19 +40,19 @@ export function MarkdownContent({ filePath }: MarkdownContentProps) {
     <div className="max-w-4xl mx-auto px-4 py-8">
       {loading && (
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2" style={{ borderColor: cobaltBlue }}></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
         </div>
       )}
       
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+        <div className="bg-destructive/10 border border-destructive/20 text-destructive px-4 py-3 rounded">
           <p>Error: {error}</p>
         </div>
       )}
       
       {!loading && !error && (
         <div 
-          className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-h1:text-xl prose-h1:font-semibold prose-h2:text-lg prose-h2:font-medium prose-a:text-blue-600 dark:prose-invert dark:prose-headings:text-gray-100 dark:prose-a:text-blue-400"
+          className="prose prose-lg max-w-none prose-headings:text-foreground prose-h1:text-xl prose-h1:font-semibold prose-h2:text-lg prose-h2:font-medium prose-a:text-primary dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       )}

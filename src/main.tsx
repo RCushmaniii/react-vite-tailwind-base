@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import AppRouter from './routes/AppRouter'
+ import '@fontsource-variable/inter'
+ import '@fontsource-variable/fraunces'
 import './index.css'
 
 async function enableMocking() {
   // For the template, we'll enable MSW by default for demonstration purposes
   // In a real app, you might want to check an environment variable
-  const shouldEnableMocking = true;
+  const rawEnableMsw = import.meta.env.VITE_ENABLE_MSW;
+  const shouldEnableMocking = rawEnableMsw === undefined ? true : rawEnableMsw === 'true';
   
   // Skip MSW initialization if it's disabled
   if (!shouldEnableMocking) {
@@ -29,7 +32,7 @@ async function enableMocking() {
 enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <App />
+      <AppRouter />
     </React.StrictMode>,
   )
 })

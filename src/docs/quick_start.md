@@ -3,22 +3,24 @@
 ## 🚀 Get Up and Running in 5 Minutes
 
 ### 1. Install Dependencies
+
 ```bash
 pnpm install
 ```
 
 ### 2. Start Development Server
+
 ```bash
 pnpm dev
 ```
 
-The app will be available at `http://localhost:5173`
+The app will be available at `http://localhost:3000`
 
 ---
 
 ## 📍 Key Pages
 
-- **Landing Page** (`/landing`) - Main landing page
+- **Home Page** (`/home`) - Main landing page
 - **Components** (`/components`) - Interactive booking system + data dashboard
 - **Examples** (`/examples`) - Code examples and demos
 - **Docs** (`/docs/template_usage`) - Documentation
@@ -28,26 +30,29 @@ The app will be available at `http://localhost:5173`
 ## 🎨 Using ShadCN Components
 
 ### Import Components
+
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Calendar } from '@/components/ui/calendar'
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Calendar } from '@/components/ui/calendar';
 ```
 
 ### Example Usage
+
 ```tsx
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 
 function MyComponent() {
   return (
     <Button variant="default" size="lg">
       Click Me
     </Button>
-  )
+  );
 }
 ```
 
 ### Adding More Components
+
 ```bash
 # Add a single component
 pnpm dlx shadcn@latest add [component-name]
@@ -64,13 +69,15 @@ pnpm dlx shadcn@latest add toast popover command
 ## 🎯 Common Tasks
 
 ### Creating a New Page
+
 1. Create file in `src/pages/MyPage.tsx`
-2. Add route in `src/App.tsx`
+2. Add route in `src/routes/AppRouter.tsx`
 3. Update navigation in `src/components/layout/Header.tsx`
 
 ### Adding Icons
+
 ```tsx
-import { Calendar, User, Mail, Settings } from 'lucide-react'
+import { Calendar, User, Mail, Settings } from 'lucide-react';
 
 function MyComponent() {
   return (
@@ -78,20 +85,21 @@ function MyComponent() {
       <Calendar className="h-6 w-6 text-primary" />
       <User className="h-4 w-4" />
     </div>
-  )
+  );
 }
 ```
 
 Browse all icons: https://lucide.dev/icons/
 
 ### Creating Charts
+
 ```tsx
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
   { name: 'Jan', value: 400 },
   { name: 'Feb', value: 300 },
-]
+];
 
 function MyChart() {
   return (
@@ -104,7 +112,7 @@ function MyChart() {
         <Bar dataKey="value" fill="#8b5cf6" />
       </BarChart>
     </ResponsiveContainer>
-  )
+  );
 }
 ```
 
@@ -113,6 +121,7 @@ function MyChart() {
 ## 🎨 Styling Tips
 
 ### Using Tailwind Classes
+
 ```tsx
 <div className="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md">
   <h1 className="text-2xl font-bold text-primary">Hello</h1>
@@ -120,6 +129,7 @@ function MyChart() {
 ```
 
 ### Responsive Design
+
 ```tsx
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {/* Mobile: 1 col, Tablet: 2 cols, Desktop: 3 cols */}
@@ -127,6 +137,7 @@ function MyChart() {
 ```
 
 ### Using the `cn` Utility
+
 ```tsx
 import { cn } from '@/lib/utils'
 
@@ -179,6 +190,7 @@ src/
 ## 🎯 Best Practices
 
 ### Component Structure
+
 ```tsx
 // Good: Single responsibility
 function UserCard({ user }) {
@@ -191,14 +203,15 @@ function UserCard({ user }) {
         <p>{user.email}</p>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 
 ### State Management
+
 ```tsx
 // Use local state for UI
-const [isOpen, setIsOpen] = useState(false)
+const [isOpen, setIsOpen] = useState(false);
 
 // Use props for data
 function MyComponent({ data }) {
@@ -207,13 +220,14 @@ function MyComponent({ data }) {
 ```
 
 ### Type Safety
+
 ```tsx
 // Define types for props
 interface UserCardProps {
   user: {
-    name: string
-    email: string
-  }
+    name: string;
+    email: string;
+  };
 }
 
 function UserCard({ user }: UserCardProps) {
@@ -226,23 +240,26 @@ function UserCard({ user }: UserCardProps) {
 ## 🆘 Troubleshooting
 
 ### Port Already in Use
+
 ```bash
-# Kill process on port 5173
-npx kill-port 5173
+# Kill process on port 3000
+npx kill-port 3000
 
 # Or use a different port
-pnpm dev -- --port 3000
+pnpm dev -- --port 3001
 ```
 
 ### TypeScript Errors
+
 ```bash
 # Clear cache and rebuild
-rm -rf node_modules .vite
+Remove-Item -Recurse -Force node_modules, .vite
 pnpm install
 pnpm dev
 ```
 
 ### Tailwind Not Working
+
 ```bash
 # Restart dev server
 # Ctrl+C then pnpm dev

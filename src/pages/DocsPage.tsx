@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import { FileText, BookOpen, Code, Lightbulb, ListTodo, Rocket, History, Smartphone } from 'lucide-react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Create a local component that doesn't rely on the import
-const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNode, activeDoc: string, navigate: (page: string) => void }) => {
+const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNode, activeDoc: string, navigate: (path: string) => void }) => {
   const navItems = [
     { id: 'readme', label: 'README', icon: FileText },
     { id: 'quick_start', label: 'Quick Start', icon: Rocket },
@@ -23,11 +24,11 @@ const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNo
           {navItems.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
-              onClick={() => navigate(`docs/${id}`)}
+              onClick={() => navigate(`/docs/${id}`)}
               className={`flex items-center gap-2 w-full text-left px-3 py-2 rounded-md transition-colors duration-150 ${
                 activeDoc === id
-                  ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-semibold'
-                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'bg-muted text-foreground font-semibold'
+                  : 'text-muted-foreground hover:bg-muted'
               }`}
             >
               <Icon className="h-4 w-4 flex-shrink-0" />
@@ -43,12 +44,26 @@ const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNo
   );
 };
 
-type DocsPageProps = {
-  docName: 'readme' | 'quick_start' | 'template_usage' | 'mobile_responsiveness' | 'core_coding_principals' | 'changelog' | 'prd' | 'next_steps';
-  navigate: (page: string) => void;
-};
+const validDocNames = [
+  'readme',
+  'quick_start',
+  'template_usage',
+  'mobile_responsiveness',
+  'core_coding_principals',
+  'changelog',
+  'prd',
+  'next_steps',
+] as const;
 
-export function DocsPage({ docName, navigate }: DocsPageProps) {
+type ValidDocName = (typeof validDocNames)[number];
+
+export function DocsPage() {
+  const navigate = useNavigate();
+  const params = useParams<{ docName?: string }>();
+  const activeDoc: ValidDocName = validDocNames.includes(params.docName as ValidDocName)
+    ? (params.docName as ValidDocName)
+    : 'readme';
+
   const [content, setContent] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -59,21 +74,21 @@ export function DocsPage({ docName, navigate }: DocsPageProps) {
       setError(null);
       let filePath = '/README.md'; // Default to README
       
-      if (docName === 'readme') {
+      if (activeDoc === 'readme') {
         filePath = '/README.md';
-      } else if (docName === 'quick_start') {
+      } else if (activeDoc === 'quick_start') {
         filePath = '/src/docs/quick_start.md';
-      } else if (docName === 'template_usage') {
+      } else if (activeDoc === 'template_usage') {
         filePath = '/src/docs/template_usage.md';
-      } else if (docName === 'mobile_responsiveness') {
+      } else if (activeDoc === 'mobile_responsiveness') {
         filePath = '/src/docs/mobile_responsiveness.md';
-      } else if (docName === 'core_coding_principals') {
+      } else if (activeDoc === 'core_coding_principals') {
         filePath = '/src/docs/core_coding_principals.md';
-      } else if (docName === 'changelog') {
+      } else if (activeDoc === 'changelog') {
         filePath = '/src/docs/changelog.md';
-      } else if (docName === 'prd') {
+      } else if (activeDoc === 'prd') {
         filePath = '/src/docs/prd.md';
-      } else if (docName === 'next_steps') {
+      } else if (activeDoc === 'next_steps') {
         filePath = '/src/docs/next_steps.md';
       }
       
@@ -109,11 +124,11 @@ export function DocsPage({ docName, navigate }: DocsPageProps) {
     };
 
     fetchDoc();
-  }, [docName]);
+  }, [activeDoc]);
 
   return (
-    <DocsLayout navigate={navigate} activeDoc={docName}>
-      <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none bg-white dark:bg-gray-800/50 p-4 md:p-6 lg:p-8 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800">
+    <DocsLayout navigate={navigate} activeDoc={activeDoc}>
+      <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none bg-card p-4 md:p-6 lg:p-8 rounded-lg shadow-sm border border-border">
         {loading && <p>Loading document...</p>}
         {error && <p className="text-red-500">Error: {error}</p>}
         {!loading && !error && (

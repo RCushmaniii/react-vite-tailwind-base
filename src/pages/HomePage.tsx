@@ -1,6 +1,7 @@
 // File: src/pages/HomePage.tsx
 import { Zap, Shield, Palette, Code2, Rocket, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { useForm } from '@formspree/react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -16,50 +17,32 @@ export function HomePage() {
     {
       icon: Zap,
       title: 'Lightning Fast',
-      description: 'Powered by Vite 7 for instant server start and blazing fast HMR',
-      iconColor: 'text-yellow-500 dark:text-yellow-400',
-      gradient: 'from-yellow-500/10 to-orange-500/10',
-      borderColor: 'border-yellow-500/20 hover:border-yellow-500/40'
+      description: 'Powered by Vite 7 for instant server start and blazing fast HMR'
     },
     {
       icon: Shield,
       title: 'Type-Safe',
-      description: 'Built with TypeScript for better DX, fewer bugs, and maintainable code',
-      iconColor: 'text-blue-500 dark:text-blue-400',
-      gradient: 'from-blue-500/10 to-cyan-500/10',
-      borderColor: 'border-blue-500/20 hover:border-blue-500/40'
+      description: 'Built with TypeScript for better DX, fewer bugs, and maintainable code'
     },
     {
       icon: Palette,
       title: 'Modern Styling',
-      description: 'Tailwind CSS + ShadCN UI for beautiful, responsive designs',
-      iconColor: 'text-purple-500 dark:text-purple-400',
-      gradient: 'from-purple-500/10 to-pink-500/10',
-      borderColor: 'border-purple-500/20 hover:border-purple-500/40'
+      description: 'Tailwind CSS + ShadCN UI for beautiful, responsive designs'
     },
     {
       icon: Code2,
       title: 'Best Practices',
-      description: 'Following SOLID principles, DRY, and modern React patterns',
-      iconColor: 'text-emerald-500 dark:text-emerald-400',
-      gradient: 'from-emerald-500/10 to-teal-500/10',
-      borderColor: 'border-emerald-500/20 hover:border-emerald-500/40'
+      description: 'Following SOLID principles, DRY, and modern React patterns'
     },
     {
       icon: Rocket,
       title: 'Production Ready',
-      description: 'Optimized builds, code splitting, and deployment-ready',
-      iconColor: 'text-rose-500 dark:text-rose-400',
-      gradient: 'from-rose-500/10 to-orange-500/10',
-      borderColor: 'border-rose-500/20 hover:border-rose-500/40'
+      description: 'Optimized builds, code splitting, and deployment-ready'
     },
     {
       icon: Sparkles,
       title: 'Rich Components',
-      description: '17+ pre-built ShadCN components with animations',
-      iconColor: 'text-fuchsia-500 dark:text-fuchsia-400',
-      gradient: 'from-fuchsia-500/10 to-purple-500/10',
-      borderColor: 'border-fuchsia-500/20 hover:border-fuchsia-500/40'
+      description: '17+ pre-built ShadCN components with animations'
     }
   ];
 
@@ -67,8 +50,7 @@ export function HomePage() {
     <div className="space-y-16 md:space-y-24 animate-in fade-in duration-700">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 rounded-2xl"></div>
-        <div className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-24 rounded-2xl border border-border bg-card shadow-sm">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <Badge className="animate-in slide-in-from-top duration-500" variant="secondary">
               <Sparkles className="h-3 w-3 mr-1" />
@@ -76,8 +58,8 @@ export function HomePage() {
             </Badge>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-in slide-in-from-bottom duration-700">
-              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent pb-2 inline-block">
-                Build Modern Apps
+              <span className="text-foreground pb-2 inline-block">
+                Build <span className="text-primary">Modern</span> Apps
               </span>
               <br />
               <span className="text-gray-900 dark:text-gray-100">Lightning Fast</span>
@@ -89,15 +71,15 @@ export function HomePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in slide-in-from-bottom duration-700 delay-300">
               <Button size="lg" className="w-full sm:w-auto text-lg h-12 group" asChild>
-                <a href="/components">
+                <Link to="/components">
                   View Components
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-12" asChild>
-                <a href="/docs/quick_start">
+                <Link to="/docs/quick_start">
                   Quick Start Guide
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
@@ -122,11 +104,11 @@ export function HomePage() {
               return (
                 <Card 
                   key={index} 
-                  className={`relative overflow-hidden border-2 ${feature.borderColor} hover:shadow-xl transition-all duration-300 group bg-gradient-to-br ${feature.gradient}`}
+                  className="relative overflow-hidden border bg-card shadow-sm hover:shadow-md transition-all duration-300 group"
                 >
                   <CardHeader>
-                    <div className="w-14 h-14 rounded-xl bg-white dark:bg-gray-900 shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <Icon className={`h-7 w-7 ${feature.iconColor}`} strokeWidth={2.5} />
+                    <div className="w-12 h-12 rounded-xl bg-muted ring-1 ring-border/60 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105">
+                      <Icon className="h-6 w-6 text-primary" strokeWidth={2} />
                     </div>
                     <CardTitle className="text-xl font-bold">{feature.title}</CardTitle>
                   </CardHeader>
@@ -142,7 +124,7 @@ export function HomePage() {
 
       {/* Call to Action Section */}
       <section className="px-4 sm:px-6 lg:px-8">
-        <Card className="max-w-5xl mx-auto border-2 border-primary bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30">
+        <Card className="max-w-5xl mx-auto border-2 border-primary bg-card">
           <CardContent className="p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="space-y-6">
@@ -176,7 +158,7 @@ export function HomePage() {
                 <CardContent>
                   {state.succeeded ? (
                     <div className="text-center py-8 space-y-4">
-                      <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30">
+                      <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-muted ring-1 ring-border/60">
                         <CheckCircle2 className="h-8 w-8 text-green-600 dark:text-green-400" />
                       </div>
                       <div>
