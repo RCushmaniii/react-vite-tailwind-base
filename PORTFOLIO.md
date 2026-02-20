@@ -16,7 +16,6 @@ tech_stack:
   - "Tailwind CSS"
   - "ShadCN UI"
   - "Recharts"
-thumbnail: ""
 status: "Production"
 
 # === DETAIL PAGE ===
@@ -27,14 +26,12 @@ key_features:
   - "Real-time data visualizations using Recharts"
   - "17+ accessible ShadCN UI components"
   - "Mobile-first responsive design"
-metrics: []
 
 # === LINKS ===
 demo_url: "https://react-vite-tailwind-base.vercel.app"
 live_url: "https://react-vite-tailwind-base.vercel.app"
 
 # === OPTIONAL ===
-hero_images: []
 tags:
   - "react"
   - "vite"
