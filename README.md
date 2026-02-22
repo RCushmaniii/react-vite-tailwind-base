@@ -6,6 +6,8 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+![React Vite Tailwind Base](./public/images/react-vite-tailwind-base-thumb.jpg)
+
 > A production-ready React template with ShadCN UI, data visualizations, and a complete interactive appointment booking showcase.
 
 ## Overview
