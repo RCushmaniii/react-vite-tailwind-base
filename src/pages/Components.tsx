@@ -48,6 +48,43 @@ import {
   ResponsiveContainer 
 } from 'recharts';
 
+const services = [
+  { id: 'consultation', name: 'Consultation', duration: 30, price: 75 },
+  { id: 'design-review', name: 'Design Review', duration: 60, price: 150 },
+  { id: 'strategy', name: 'Strategy Session', duration: 45, price: 120 },
+  { id: 'workshop', name: 'Workshop', duration: 90, price: 250 },
+];
+
+const timeSlots = [
+  '09:00 AM', '10:00 AM', '11:00 AM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'
+];
+
+const revenueData = [
+  { month: 'Jan', revenue: 4200, bookings: 45 },
+  { month: 'Feb', revenue: 5100, bookings: 52 },
+  { month: 'Mar', revenue: 6800, bookings: 68 },
+  { month: 'Apr', revenue: 7200, bookings: 71 },
+  { month: 'May', revenue: 8500, bookings: 85 },
+  { month: 'Jun', revenue: 9200, bookings: 92 },
+];
+
+const serviceDistribution = [
+  { name: 'Consultation', value: 35, color: '#0d9488' },
+  { name: 'Design Review', value: 28, color: '#3b82f6' },
+  { name: 'Strategy Session', value: 22, color: '#10b981' },
+  { name: 'Workshop', value: 15, color: '#f59e0b' },
+];
+
+const weeklyActivity = [
+  { day: 'Mon', appointments: 12 },
+  { day: 'Tue', appointments: 15 },
+  { day: 'Wed', appointments: 18 },
+  { day: 'Thu', appointments: 14 },
+  { day: 'Fri', appointments: 20 },
+  { day: 'Sat', appointments: 8 },
+  { day: 'Sun', appointments: 5 },
+];
+
 export function ComponentsPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedService, setSelectedService] = useState('');
@@ -58,44 +95,6 @@ export function ComponentsPage() {
   const [reminderEnabled, setReminderEnabled] = useState(true);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-
-  const services = [
-    { id: 'consultation', name: 'Consultation', duration: 30, price: 75 },
-    { id: 'design-review', name: 'Design Review', duration: 60, price: 150 },
-    { id: 'strategy', name: 'Strategy Session', duration: 45, price: 120 },
-    { id: 'workshop', name: 'Workshop', duration: 90, price: 250 },
-  ];
-
-  const timeSlots = [
-    '09:00 AM', '10:00 AM', '11:00 AM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'
-  ];
-
-  // Chart data
-  const revenueData = [
-    { month: 'Jan', revenue: 4200, bookings: 45 },
-    { month: 'Feb', revenue: 5100, bookings: 52 },
-    { month: 'Mar', revenue: 6800, bookings: 68 },
-    { month: 'Apr', revenue: 7200, bookings: 71 },
-    { month: 'May', revenue: 8500, bookings: 85 },
-    { month: 'Jun', revenue: 9200, bookings: 92 },
-  ];
-
-  const serviceDistribution = [
-    { name: 'Consultation', value: 35, color: '#0d9488' },
-    { name: 'Design Review', value: 28, color: '#3b82f6' },
-    { name: 'Strategy Session', value: 22, color: '#10b981' },
-    { name: 'Workshop', value: 15, color: '#f59e0b' },
-  ];
-
-  const weeklyActivity = [
-    { day: 'Mon', appointments: 12 },
-    { day: 'Tue', appointments: 15 },
-    { day: 'Wed', appointments: 18 },
-    { day: 'Thu', appointments: 14 },
-    { day: 'Fri', appointments: 20 },
-    { day: 'Sat', appointments: 8 },
-    { day: 'Sun', appointments: 5 },
-  ];
 
   const handleBooking = () => {
     if (date && selectedService && selectedTime && name && email) {

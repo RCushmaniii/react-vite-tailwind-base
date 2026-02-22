@@ -27,7 +27,6 @@ export function MarkdownContent({ filePath }: MarkdownContentProps) {
         setContent(html);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        console.error('Error fetching markdown content:', err);
       } finally {
         setLoading(false);
       }

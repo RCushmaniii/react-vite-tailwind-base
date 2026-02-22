@@ -16,72 +16,45 @@ interface ExampleUser {
   role: 'admin' | 'user';
 }
 
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+
+  const contentType = response.headers.get('content-type');
+  if (!contentType || !contentType.includes('application/json')) {
+    throw new Error(`Expected JSON response but got ${contentType}`);
+  }
+
+  return response.json();
+}
+
 export function ExamplesPage() {
   const [user, setUser] = useState<User | null>(null);
   const [users, setUsers] = useState<ExampleUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // MSW status check removed as we're using a demo alert instead
 
-  // Fetch user data from the API
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        console.log('Fetching user data from /api/user');
-        const response = await fetch('/api/user');
-        console.log('Response status:', response.status);
-        
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
-        }
-        
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          throw new Error(`Expected JSON response but got ${contentType}`);
-        }
-        
-        const data = await response.json();
-        console.log('User data received:', data);
-        setUser(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        console.error('Error fetching user:', err);
-      }
-    };
-
-    fetchUser();
-  }, []);
-
-  // Fetch example users data from the API
-  useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchData = async () => {
       setLoading(true);
       try {
-        console.log('Fetching users data from /api/users');
-        const response = await fetch('/api/users');
-        console.log('Response status:', response.status);
-        
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
-        }
-        
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          throw new Error(`Expected JSON response but got ${contentType}`);
-        }
-        
-        const data = await response.json();
-        console.log('Users data received:', data);
-        setUsers(data);
+        const [userData, usersData] = await Promise.all([
+          fetchJson<User>('/api/user'),
+          fetchJson<ExampleUser[]>('/api/users'),
+        ]);
+        setUser(userData);
+        setUsers(usersData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        console.error('Error fetching users:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUsers();
+    fetchData();
   }, []);
 
   return (
@@ -90,19 +63,19 @@ export function ExamplesPage() {
         <h1 className="text-3xl font-bold mb-2 text-foreground">React Vite Tailwind <span className="text-primary">Examples</span></h1>
         <p className="text-gray-600 dark:text-gray-400 mb-6">This page demonstrates various features of the template.</p>
       </div>
-      
+
       {/* MSW Status Banner */}
       <MswAlert />
-      
+
       <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">UI Component Demonstration</h2>
         <p className="text-gray-600">This example shows a reusable React component with TypeScript props and Tailwind CSS styling.</p>
-        <ExampleComponent 
-          title="Example Component" 
+        <ExampleComponent
+          title="Example Component"
           description="This is an example component with TypeScript props and Tailwind styling"
         />
       </section>
-      
+
       <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">Basic API Integration</h2>
         <p className="text-gray-600">This example demonstrates fetching a single user from a mock API endpoint using MSW.</p>
@@ -127,7 +100,7 @@ export function ExamplesPage() {
           </div>
         )}
       </section>
-      
+
       <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">Data Table with Mock API</h2>
         <p className="text-gray-600">This example shows how to fetch and display a collection of users from a mock API endpoint.</p>

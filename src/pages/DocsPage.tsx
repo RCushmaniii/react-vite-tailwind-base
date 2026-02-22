@@ -1,10 +1,10 @@
 // File: src/pages/DocsPage.tsx
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 import { FileText, BookOpen, Code, Lightbulb, ListTodo, Rocket, History, Smartphone } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router';
 
-// Create a local component that doesn't rely on the import
 const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNode, activeDoc: string, navigate: (path: string) => void }) => {
   const navItems = [
     { id: 'readme', label: 'README', icon: FileText },
@@ -57,6 +57,17 @@ const validDocNames = [
 
 type ValidDocName = (typeof validDocNames)[number];
 
+const docPaths: Record<ValidDocName, string> = {
+  readme: '/README.md',
+  quick_start: '/src/docs/quick_start.md',
+  template_usage: '/src/docs/template_usage.md',
+  mobile_responsiveness: '/src/docs/mobile_responsiveness.md',
+  core_coding_principals: '/src/docs/core_coding_principals.md',
+  changelog: '/src/docs/changelog.md',
+  prd: '/src/docs/prd.md',
+  next_steps: '/src/docs/next_steps.md',
+};
+
 export function DocsPage() {
   const navigate = useNavigate();
   const params = useParams<{ docName?: string }>();
@@ -72,52 +83,26 @@ export function DocsPage() {
     const fetchDoc = async () => {
       setLoading(true);
       setError(null);
-      let filePath = '/README.md'; // Default to README
-      
-      if (activeDoc === 'readme') {
-        filePath = '/README.md';
-      } else if (activeDoc === 'quick_start') {
-        filePath = '/src/docs/quick_start.md';
-      } else if (activeDoc === 'template_usage') {
-        filePath = '/src/docs/template_usage.md';
-      } else if (activeDoc === 'mobile_responsiveness') {
-        filePath = '/src/docs/mobile_responsiveness.md';
-      } else if (activeDoc === 'core_coding_principals') {
-        filePath = '/src/docs/core_coding_principals.md';
-      } else if (activeDoc === 'changelog') {
-        filePath = '/src/docs/changelog.md';
-      } else if (activeDoc === 'prd') {
-        filePath = '/src/docs/prd.md';
-      } else if (activeDoc === 'next_steps') {
-        filePath = '/src/docs/next_steps.md';
-      }
-      
+      const filePath = docPaths[activeDoc];
+
       try {
-        console.log(`Fetching document from: ${filePath}`);
         const response = await fetch(filePath);
-        
+
         if (!response.ok) {
           throw new Error(`Could not load ${filePath}. Status: ${response.status}`);
         }
-        
+
         const text = await response.text();
-        console.log(`Received markdown content (first 50 chars): ${text.substring(0, 50)}...`);
-        
-        // Parse the markdown to HTML
         const html = await marked.parse(text);
-        
-        // Make sure html is a string
+
         if (typeof html === 'string') {
-          console.log(`Parsed HTML (first 50 chars): ${html.substring(0, 50)}...`);
-          setContent(html);
+          setContent(DOMPurify.sanitize(html));
         } else {
-          console.error('Marked returned a non-string value:', html);
           setError('Error parsing markdown content');
         }
       } catch (e) {
         const message = e instanceof Error ? e.message : 'An unknown error occurred.';
         setError(message);
-        console.error("Error fetching doc:", e);
       } finally {
         setLoading(false);
       }
