@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import AppLayout from '../App';
 
 const HomePage = lazy(() => import('../pages/HomePage').then(m => ({ default: m.HomePage })));

@@ -1,5 +1,5 @@
 // File: src/components/layout/Footer.tsx
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

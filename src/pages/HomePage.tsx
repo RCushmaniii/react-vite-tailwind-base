@@ -1,7 +1,7 @@
 // File: src/pages/HomePage.tsx
 import { Zap, Shield, Palette, Code2, Rocket, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { useForm } from '@formspree/react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

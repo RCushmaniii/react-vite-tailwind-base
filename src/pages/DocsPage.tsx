@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import { FileText, BookOpen, Code, Lightbulb, ListTodo, Rocket, History, Smartphone } from 'lucide-react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 
 // Create a local component that doesn't rely on the import
 const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNode, activeDoc: string, navigate: (path: string) => void }) => {
