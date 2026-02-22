@@ -31,7 +31,7 @@ const DocsLayout = ({ children, activeDoc, navigate }: { children: React.ReactNo
                   : 'text-muted-foreground hover:bg-muted'
               }`}
             >
-              <Icon className="h-4 w-4 flex-shrink-0" />
+              <Icon className="h-4 w-4 shrink-0" />
               <span className="text-sm">{label}</span>
             </button>
           ))}
@@ -128,7 +128,7 @@ export function DocsPage() {
 
   return (
     <DocsLayout navigate={navigate} activeDoc={activeDoc}>
-      <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none bg-card p-4 md:p-6 lg:p-8 rounded-lg shadow-sm border border-border">
+      <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none bg-card p-4 md:p-6 lg:p-8 rounded-lg shadow-xs border border-border">
         {loading && <p>Loading document...</p>}
         {error && <p className="text-red-500">Error: {error}</p>}
         {!loading && !error && (

@@ -72,7 +72,7 @@ export function NotFoundPage() {
                 className="w-full justify-start text-left h-auto py-3"
                 onClick={() => navigate(page.path)}
               >
-                <page.icon className="mr-3 h-5 w-5 text-primary flex-shrink-0" />
+                <page.icon className="mr-3 h-5 w-5 text-primary shrink-0" />
                 <span className="text-base">{page.name}</span>
               </Button>
             ))}

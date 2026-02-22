@@ -50,7 +50,7 @@ export function HomePage() {
     <div className="space-y-16 md:space-y-24 animate-in fade-in duration-700">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-24 rounded-2xl border border-border bg-card shadow-sm">
+        <div className="relative px-4 sm:px-6 lg:px-8 py-16 md:py-24 rounded-2xl border border-border bg-card shadow-xs">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <Badge className="animate-in slide-in-from-top duration-500" variant="secondary">
               <Sparkles className="h-3 w-3 mr-1" />
@@ -104,7 +104,7 @@ export function HomePage() {
               return (
                 <Card 
                   key={index} 
-                  className="relative overflow-hidden border bg-card shadow-sm hover:shadow-md transition-all duration-300 group"
+                  className="relative overflow-hidden border bg-card shadow-xs hover:shadow-md transition-all duration-300 group"
                 >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-xl bg-muted ring-1 ring-border/60 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105">
@@ -136,15 +136,15 @@ export function HomePage() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
                     <p className="text-gray-700 dark:text-gray-300">Pre-configured development environment</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
                     <p className="text-gray-700 dark:text-gray-300">Comprehensive documentation & examples</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
                     <p className="text-gray-700 dark:text-gray-300">Best practices & modern patterns</p>
                   </div>
                 </div>

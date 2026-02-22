@@ -11,7 +11,7 @@ interface LegalLayoutProps {
  */
 export function LegalLayout({ children, title, lastUpdated }: LegalLayoutProps) {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border p-8">
+    <div className="bg-card rounded-lg shadow-xs border border-border p-8">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 pb-6 border-b border-border">
           <h1 className="text-3xl font-bold mb-2 text-foreground">{title}</h1>

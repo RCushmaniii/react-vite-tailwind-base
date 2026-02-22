@@ -12,11 +12,11 @@ export function Header() {
   };
 
   return (
-    <header className="bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b border-border sticky top-0 z-50">
+    <header className="bg-background/90 backdrop-blur-sm supports-backdrop-filter:bg-background/70 border-b border-border sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Branding */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link to="/home" onClick={() => setIsMenuOpen(false)}>
               <img className="h-12 w-auto" src="/logo.png" alt="React Vite Tailwind Base Logo" />
             </Link>
@@ -40,7 +40,7 @@ export function Header() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-ring"
             >
               <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 {isMenuOpen ? (

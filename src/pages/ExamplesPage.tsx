@@ -94,7 +94,7 @@ export function ExamplesPage() {
       {/* MSW Status Banner */}
       <MswAlert />
       
-      <section className="space-y-6 bg-card p-6 rounded-lg shadow-sm border border-border">
+      <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">UI Component Demonstration</h2>
         <p className="text-gray-600">This example shows a reusable React component with TypeScript props and Tailwind CSS styling.</p>
         <ExampleComponent 
@@ -103,7 +103,7 @@ export function ExamplesPage() {
         />
       </section>
       
-      <section className="space-y-6 bg-card p-6 rounded-lg shadow-sm border border-border">
+      <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">Basic API Integration</h2>
         <p className="text-gray-600">This example demonstrates fetching a single user from a mock API endpoint using MSW.</p>
         {error && <p className="text-red-500">Error: {error}</p>}
@@ -128,7 +128,7 @@ export function ExamplesPage() {
         )}
       </section>
       
-      <section className="space-y-6 bg-card p-6 rounded-lg shadow-sm border border-border">
+      <section className="space-y-6 bg-card p-6 rounded-lg shadow-xs border border-border">
         <h2 className="text-2xl font-semibold border-b border-border pb-2 text-foreground">Data Table with Mock API</h2>
         <p className="text-gray-600">This example shows how to fetch and display a collection of users from a mock API endpoint.</p>
         {error && <p className="text-red-500">Error: {error}</p>}

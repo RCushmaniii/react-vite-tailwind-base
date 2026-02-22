@@ -284,7 +284,7 @@ export function ComponentsPage() {
           </div>
 
           {/* Booking Summary and Confirmation */}
-          <Card className="border-2 border-primary bg-gradient-to-br from-primary/5 to-primary/10">
+          <Card className="border-2 border-primary bg-linear-to-br from-primary/5 to-primary/10">
             <CardHeader>
               <CardTitle className="text-2xl">Booking Summary</CardTitle>
             </CardHeader>
@@ -338,7 +338,7 @@ export function ComponentsPage() {
                       <div className="flex items-center gap-4">
                         <Avatar className="h-16 w-16 border-2 border-primary">
                           <AvatarImage src={`https://api.dicebear.com/8.x/notionists/svg?seed=${name}`} />
-                          <AvatarFallback className="bg-gradient-to-br from-primary to-teal-700 text-white text-xl">
+                          <AvatarFallback className="bg-linear-to-br from-primary to-teal-700 text-white text-xl">
                             {name.split(' ').map(n => n[0]).join('').toUpperCase()}
                           </AvatarFallback>
                         </Avatar>
