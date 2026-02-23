@@ -1,8 +1,8 @@
 ---
 # === CONTROL FLAGS ===
 portfolio_enabled: true
-portfolio_priority: 2
-portfolio_featured: true
+portfolio_priority: 5
+portfolio_featured: false
 
 # === CARD DISPLAY ===
 title: "React Vite Tailwind Base"
